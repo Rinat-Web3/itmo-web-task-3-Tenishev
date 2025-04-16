@@ -1,4 +1,4 @@
-
+Mission 2
 
 ## Part1
 
@@ -20,3 +20,40 @@ https://github.com/microsoft/vscode/issues/2085
 
 - Вопрос 5	 
 > Добавить в неё файл, например .gitkeep, чтобы Git начал её отслеживать.
+
+
+Mission 3
+
+Часть 1
+https://app.buildship.com/p/buildship-1ups0h/flow/W8qXfScajPwCgxPyaLeU
+
+Часть 2 
+https://app.buildship.com/p/buildship-1ups0h/flow/roGdLqVEexLv5RJYKjgx
+
+Запросы:
+
+1.
+SELECT username
+FROM users;
+
+2.
+SELECT users.username,
+COUNT(messages.id) AS number_of_sent_messages
+FROM users
+LEFT JOIN messages ON users.id = messages.from
+GROUP BY users.username
+
+
+3.
+SELECT users.username, COUNT(messages.id) AS number_of_received_messages
+FROM users
+LEFT JOIN messages ON users.id = messages.to
+GROUP BY users.username
+ORDER BY number_of_received_messages DESC
+
+
+4.
+SELECT ROUND(1.0 * COUNT(messages.id) / COUNT(DISTINCT users.id), 2) AS avg_sent_messages_per_user
+FROM users
+LEFT JOIN messages ON users.id = messages.from;
+
